@@ -1,0 +1,20 @@
+defaults:
+  - dataset: SIR_simulation
+  # - model: continous_temporal_gcn
+  # - model: grin_impute
+  # - model: masked_gcn
+  # - model: recurrent_gnn
+  - model: gru_gcn
+  - logger: wandb_personal
+  - training: default  # Use training config with temporal smoothing
+  # - override hydra/launcher: submitit_slurm
+data_seed: 42
+num_seeds: 5
+seed_to_run: 0
+seed: -1 # set by main.py to be the current seed in the loop over seeds
+plot_seed: 0 # used to plot pre-training and active learning analysis figures for only one seed
+verbose: True
+visualise: False
+device: cuda
+# experiment_name: ${model.name}_${dataset.name}_experiment
+experiment_name: ${logger.recurrent_component}_${dataset.graph}_${model.model.probability_of_selecting_nodes}

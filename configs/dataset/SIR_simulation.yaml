@@ -1,0 +1,28 @@
+name: SIR
+type: simulation
+num_simulations: 100
+graph: BA
+dataset:
+  population_csv_path: data/${..graph}/populations.csv
+  mobility_matrix_path: data/${..graph}/mobility_matrix_directed_weighted_static.csv
+output_binary: False
+train_test_ratio: 0.7
+num_sims_for_AL: 15
+do_sirs: False
+num_lookback_steps: 10
+num_prediction_steps: 1
+min_prediction_steps: 10
+SIR:
+  # T: 21 # ignore if dynamic_T is True
+  dynamic_T: True # Whether each simulation would have the same length or not
+  max_T: 600 # if dynamic_T, the simulation runs until no infected nodes remain or max_T 
+  # if dynamic_T is False, the simulation runs until max_T 
+  min_T: 100 # the simulation only included when at least min_T time steps have passed
+  source: -1 # -1 indicates random source
+  beta_lower: 0.1
+  beta_upper: 0.15 #3.0
+  gamma_lower: 0.05
+  gamma_upper: 0.5
+  sigma_lower: 0.1
+  sigma_upper: 0.3
+visualise: False

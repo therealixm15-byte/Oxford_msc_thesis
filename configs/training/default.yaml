@@ -1,0 +1,55 @@
+pretraining:
+  max_epoch: 1
+  smooth_loss_weight: 0.1
+  truncated_BPTT_length: 1024
+
+active_learning:
+  max_epoch: 1
+  smooth_loss_weight: 0.1
+  truncated_BPTT_length: 50
+  num_nodes_to_test: 50
+  mc_dropout_samples: 80
+
+  policies:
+    # BALSA_KL_Pairs:
+    #   _target_: src.acquisition_funcs.BALSA_KL_Pairs
+    #   _partial_: true
+    # Predicted_Incidence:
+    #   _target_: src.acquisition_funcs.Predicted_Incidence
+    #   _partial_: true
+    # Degree_Centrality:
+    #   _target_: src.acquisition_funcs.Degree_Centrality
+    #   _partial_: true
+    Random:
+      _target_: src.acquisition_funcs.Random
+      _partial_: true
+    # True_MSE_Oracle:
+    #   _target_: src.acquisition_funcs.True_MSE_Oracle
+    #   _partial_: true
+
+
+
+    # BALSA_KL_Pairs_Variable:
+    #   _target_: src.acquisition_funcs.BALSA_KL_Pairs_Variable
+    #   _partial_: true
+    # Predicted_Incidence_Variable:
+    #   _target_: src.acquisition_funcs.Predicted_Incidence_Variable
+    #   _partial_: true
+    # Degree_Centrality_Variable:
+    #   _target_: src.acquisition_funcs.Degree_Centrality_Variable
+    #   _partial_: true
+    # Random_Variable:
+    #   _target_: src.acquisition_funcs.Random_Variable
+    #   _partial_: true
+    # True_MSE_Oracle_Variable:
+    #   _target_: src.acquisition_funcs.True_MSE_Oracle_Variable
+    #   _partial_: true
+
+
+
+  # MC_Dropout_Variance:
+    #  _target_: src.acquisition_funcs.MC_Dropout_Variance
+    #  _partial_: true
+  #Ablated_Model:
+    #  _target_: src.acquisition_funcs.Ablated_Model
+    #  _partial_: true

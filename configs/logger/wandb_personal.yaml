@@ -1,0 +1,7 @@
+wandb_mode: "online"
+project: "DynADS"
+entity: "juliotsimpos-university-of-oxford"
+log_model: False
+recurrent_component: gru_gcn
+logging_steps: 1
+report_to: "wandb"
